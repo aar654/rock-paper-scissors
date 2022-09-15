@@ -1,1 +1,1 @@
-This is a game made through Odin that will let you play rock, paper, scissors with 
+This is a game made through the Odin website that will let you play rock, paper, scissors.
