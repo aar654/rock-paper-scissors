@@ -11,7 +11,7 @@ function getPlayerChoice() {
     return playerChoice;
 }
 
-//function that plays a round of rock, paper, scissors
+//function that plays a round of rps
 function playRound() {
     let computerSelection = getComputerChoice();
     let playerSelection = getPlayerChoice();
