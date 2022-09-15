@@ -43,7 +43,7 @@ function playRound() {
     }
 }
 
-//function that keeps track of the scores between the computer and the player
+//function that keeps track of the scores between the computer and the player and plays 5 rounds
 function game() {
 
     for (let counter = 0; counter <= 5; ++counter) {
