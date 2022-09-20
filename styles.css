@@ -1,0 +1,56 @@
+body {
+  font-family: copperplate;
+  text-align: center;
+  font-size: 20px;
+  background: linear-gradient(#E8F9FD, #79DAE8, #0AA1DD, #2155CD);
+  background-attachment: fixed;
+}
+
+h1{
+  font-size: 50px;
+}
+
+.header{
+  padding-bottom: 25px;
+}
+
+img {
+  border: 5px solid;
+  padding: 25px;
+  margin: auto 25px auto 25px;
+  display: block;
+  max-width:200px;
+  height: auto;
+}
+
+button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 25px;
+}
+
+img:hover{
+  border: 5px solid rgb(255, 251, 0);
+}
+
+.rps{
+  display: flex;
+  justify-content: center;
+  gap: 270px;
+}
+
+.scores{
+  display: flex;
+  justify-content: center;
+  gap: 300px;
+}

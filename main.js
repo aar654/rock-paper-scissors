@@ -1,44 +1,86 @@
-//function that gets the random choice from computer
-function getComputerChoice() {
-    let choice = ["rock", "paper", "scissors"];
-    let randChoice = choice[Math.floor(Math.random() * choice.length)];
-    return randChoice;
-}
+//initializing variables
+let playerSelection = '';
+let computerSelection = '';
 
-//function that gets the player choice in a prompt
-function getPlayerChoice() {
-    let playerChoice = prompt("Rock, paper or scissors?");
-    return playerChoice;
+let playerScore = 0;
+let computerScore = 0;
+
+const buttons = document.querySelectorAll('.btn');
+
+const player = document.querySelector("#player-score");
+player.textContent = `Player Score: ${playerScore}`;
+
+const computer = document.querySelector("#computer-score");
+computer.textContent = `Computer Score: ${computerScore}`;
+
+const playerCh = document.querySelector("#pChoice");
+playerCh.textContent = `Player Selection: ${playerSelection}`;
+
+const computerCh = document.querySelector("#cChoice");
+computerCh.textContent = `Computer Selection: ${computerSelection}`;
+
+const output = document.querySelector("#output");
+output.textContent = "";
+
+const outputWinner = document.querySelector("#outputWinner");
+outputWinner.textContent = ""
+
+
+//adds functionality to buttons that get player selection and computer selection
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+
+        playerSelection = button.id;
+        if (playerSelection == "rock") {
+            console.log("Rock");
+        }
+        else if (playerSelection == "paper") {
+            console.log("Paper");
+        }
+        else if (playerSelection == "scissors") {
+            console.log("Scissors");
+        }
+        computerSelection = computerChoice();
+        game();
+
+    })
+
+})
+
+//function that gets the random choice from computer
+function computerChoice() {
+    let choice = ["Rock", "Paper", "Scissors"];
+    randChoice = choice[Math.floor(Math.random() * choice.length)];
+    return (randChoice);
 }
 
 //function that plays a round of rps
 function playRound() {
-    let computerSelection = getComputerChoice();
-    let playerSelection = getPlayerChoice();
 
-    alert("You have chosen: " + playerSelection);
-    alert("Computer has chosen: " + computerSelection);
+    computerSelection;
+    playerSelection;
+    output.textContent = "";
 
     if (playerSelection === computerSelection) {
-        alert("It's a draw!");
+        outputWinner.textContent = "It's a draw!";
 
-    } else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-        alert("You win! Rock beats scissors");
+    } else if ((playerSelection === "Rock") && (computerSelection === "Scissors")) {
+        outputWinner.textContent = "You win! Rock beats Scissors.";
         ++playerScore;
-    } else if (playerSelection === "rock" && computerSelection === "paper") {
-        alert("You lose! Paper beats rock");
+    } else if (playerSelection === "Rock" && computerSelection === "Paper") {
+        outputWinner.textContent = "You lose! Paper beats Rock.";
         ++computerScore;
-    } else if (playerSelection === "paper" && computerSelection === "rock") {
-        alert("You win! Paper beats rock");
+    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+        outputWinner.textContent = "You win! Paper beats Rock.";
         ++playerScore;
-    } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        alert("You lose! Scissors beat paper");
+    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        outputWinner.textContent = "You lose! Scissors beat Paper.";
         ++computerScore;
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        alert("You win! Scissors beat paper");
+    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+        outputWinner.textContent = "You win! Scissors beat Paper.";
         ++playerScore;
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        alert("You lose!Rock beats scissors");
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+        outputWinner.textContent = "You lose! Rock beats Scissors.";
         ++computerScore;
     }
 }
@@ -46,24 +88,36 @@ function playRound() {
 //function that keeps track of the scores between the computer and the player and plays 5 rounds
 function game() {
 
-    for (let counter = 0; counter <= 5; ++counter) {
+    playRound();
 
-        playRound();
-        console.log("Player Score: " + playerScore);
-        console.log("Computer Score: " + computerScore);
+    player.textContent = `Player Score: ${playerScore}`;
+    computer.textContent = `Computer Score: ${computerScore}`;
 
+    const playerCh = document.querySelector("#pChoice");
+    playerCh.textContent = `Player Selection: ${playerSelection}`;
+
+    const computerCh = document.querySelector("#cChoice");
+    computerCh.textContent = `Computer Selection: ${computerSelection}`;
+
+    if (playerScore == 5) {
+        output.textContent = "You won against the computer! Awesome job! Click on any of the buttons to restart champion.";
+        playerCh.textContent = `Player Selection: `;
+        computerCh.textContent = `Computer Selection: `;
+        playerScore = 0;
+        computerScore = 0;
+        player.textContent = `Player Score: ${playerScore}`;
+        computer.textContent = `Computer Score: ${computerScore}`;
+        outputWinner.textContent = "";
     }
 
-    if (playerScore > computerScore) {
-        return ('You win ' + playerScore + ' to ' + computerScore + '.');
-    } else if (playerScore < computerScore) {
-        return ('You lose ' + computerScore + ' to ' + playerScore + '.');
-    } else {
-        return ('It was a tie, you both won the same number of rounds.');
+    else if (computerScore == 5) {
+        output.textContent = "You lost. Try again and beat the computer. Click on any of the buttons to restart.";
+        playerCh.textContent = `Player Selection: `;
+        computerCh.textContent = `Computer Selection: `;
+        playerScore = 0;
+        computerScore = 0;
+        player.textContent = `Player Score: ${playerScore}`;
+        computer.textContent = `Computer Score: ${computerScore}`;
+        outputWinner.textContent = "";
     }
 }
-
-// initalize the scores and calls the logs the game function
-let playerScore = 0;
-let computerScore = 0;
-console.log(game());

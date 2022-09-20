@@ -5,11 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, paper, scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock, Paper, Scissors</title>
 </head>
 
 <body>
     <h1>Rock, Paper, Scissors!</h1>
+
+    <div class="header">    
+        <p>Try your luck against the computer. Best of 5 games win! Click on the rock, paper, or scissors button to start/restart.</p>
+    </div>
+   
+    <div class="buttons">
+        <button class="btn" id="Rock"><img src="images/rock.jpg" alt="rock"></button>
+        <button class="btn" id="Paper"><img src="images/paper.jpg" alt="paper"></button>
+        <button class="btn" id="Scissors"><img src="images/scissors.jpg" alt="scissors"></button>
+    </div>
+
+    <div class="choice">
+        <p class="text" id="pChoice">You chose:</p>
+        <p class="text" id="cChoice">The computer chose:</p>
+        <p class="text" id="outputWinner"></p>
+
+    </div>
+
+    <div class="scores">
+        <p class="text" id="player-score">Player Score:</p>
+        <p class="text" id="computer-score">Computer Score:</p>
+    </div>
+
+    <div>
+        <p class="text" id="output"></p>
+
+    </div>
     <script src="main.js"></script>
 </body>
 
